@@ -24,9 +24,10 @@ addSong = (song) => {
 
 updateSong = (song) => {
   const updatedSongs = this.state.songs.map((s)=>(s.id === song.id ? song : s));
-  console.log(updatedSongs);
+  console.log('did mount');
   this.setState({
     songs: updatedSongs});
+    
   };
 
 

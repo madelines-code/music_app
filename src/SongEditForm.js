@@ -1,6 +1,5 @@
 import React from 'react';
 import { Button, Divider, Form, Header } from "semantic-ui-react";
-import styled from "styled-components";
 
 class SongForm extends React.Component {
   state = {
@@ -8,7 +7,6 @@ class SongForm extends React.Component {
     artist: this.props.artist ? this.props.artist : "",
     id: this.props.id ? this.props.id : "",
     show: false,
-    showMe: false,
   };
   handleChange = (e) => {
     if (e.target.name === "name") {
@@ -41,14 +39,11 @@ handleSubmit = () => {
   }
   };
 
-  toggleForm = () => {
-    this.setState({ show: !this.state.show });
+  toggleEditForm = () => {
+    this.setState({ show : !this.state.show} );
   };
 
 
-  setStateEditForm = () => {
-    this.setState({ showMe : true} );
-  };
 //  render : function() {
 //      if(this.state.showMe) { 
 //          return (<div> one div </div>);
@@ -61,12 +56,13 @@ handleSubmit = () => {
     return ( 
      <div>
        
-        <Button onClick={this.toggleForm}>
-          {this.state.show ? "Cancel" : "Add New Song"}
+        <Button onClick={this.toggleEditForm}>
+          {this.state.show ? "Cancel" : "Edit"}
         </Button>
         {this.state.show && (
-       <FormStyle><Form onSubmit={this.handleSubmit}>
+       <Form onSubmit={this.handleSubmit}>
          <Header>Add A Song</Header>
+         
          <Form.Field>
            <Form.Input
             name="name"
@@ -82,14 +78,13 @@ handleSubmit = () => {
             onChange={this.handleChange}/>
          </Form.Field>
          <Button type="submit">Submit</Button>
-       </Form></FormStyle>
+       </Form>
         )}
      </div>
     );
   }
   }
 
-  const FormStyle = styled.form`
-  margin: 20px; !important;`
+
 
 export default SongForm;
