@@ -1,8 +1,12 @@
 import React from 'react';
 import { Container, Divider } from 'semantic-ui-react';
 import './App.css';
+import Navbar from './Navbar';
 import SongForm from './SongForm';
 import Songs from './Songs';
+import { Background, PRIMARY_FONT_COLOR } from './Styles';
+import styled from "styled-components";
+
 
 class App extends React.Component {
   state= {
@@ -40,16 +44,22 @@ updateSong = (song) => {
 
   render() {
     return (
-      <Container>
-        <header className="App-header">
-          <h1>Music Library</h1>
-          <Divider/>
-          <Songs songs={this.state.songs} updateSong={this.updateSong} deleteSong={this.deleteSong}/>
-          <SongForm songs={this.state.songs} addSong={this.addSong} updateSong={this.updateSong} />
-        </header>
-      </Container>
+      <Background>
+        <Navbar/>
+        <Container>
+          <header className="App-header">
+            <HomeText>Music Library</HomeText>
+            <Divider/>
+            <Songs songs={this.state.songs} updateSong={this.updateSong} deleteSong={this.deleteSong}/>
+            <SongForm songs={this.state.songs} addSong={this.addSong} updateSong={this.updateSong} />
+          </header>
+        </Container>
+      </Background>
     );
   }
 }
 
+const HomeText = styled.h1`
+color: ${PRIMARY_FONT_COLOR}
+`
 export default App;

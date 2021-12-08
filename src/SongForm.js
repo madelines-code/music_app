@@ -61,7 +61,7 @@ handleSubmit = () => {
     return ( 
      <div>
        
-        <Button onClick={this.toggleForm}>
+        <Button style={{marginTop: '20px'}} onClick={this.toggleForm}>
           {this.state.show ? "Cancel" : "Add New Song"}
         </Button>
         {this.state.show && (
@@ -91,5 +91,7 @@ handleSubmit = () => {
 
   const FormStyle = styled.form`
   margin: 20px; !important;`
+
+
 
 export default SongForm;

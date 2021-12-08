@@ -77,7 +77,7 @@ class Song extends React.Component {
          </Form.Field>
          </Table.Cell>
          <Table.Cell>
-         <Button color="green" type="submit" onClick={this.handleSubmit}>Submit Change</Button>
+         <Button color="green" type="submit" onClick={this.handleSubmit}>Submit</Button>
          <Button onClick={()=>this.toggleEditForm() }>Cancel</Button>
          </Table.Cell>
       
